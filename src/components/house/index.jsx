@@ -10,10 +10,10 @@ import * as THREE from 'three';
 // https://gltf.report/
 
 export default function House() {
-  const { nodes } = useGLTF('/gltf/casaRegularJoin1.glb');
+  const { nodes } = useGLTF('./gltf/casaRegularJoin1.glb');
   //   console.log('...........', nodes.parede);
   //   atençao ao dar join no blender a ultima geomtria fica como ponto de origem
-  const bakedTestureHouse = useTexture('/bake/bakedImage.jpg');
+  const bakedTestureHouse = useTexture('./bake/bakedImage.jpg');
   bakedTestureHouse.flipY = false;
 
   // console.log('...........', nodes);
