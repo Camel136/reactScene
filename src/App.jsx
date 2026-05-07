@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="app">
-      <header className="section header">Minha UI normal</header>
+      <header className="section header"></header>
 
       <div className="section canvas-container">
         <Canvas shadows>
