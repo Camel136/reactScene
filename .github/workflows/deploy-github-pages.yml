@@ -3,7 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main # ou 'master', dependendo da sua branch padrão
 
 jobs:
   build:
@@ -15,16 +15,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
       - run: npm install
       - run: npm run build
 
-      - name: Add .nojekyll to bypass Jekyll
+      # ⚠️ PASSO CRÍTICO: Adiciona o arquivo .nojekyll para desativar o Jekyll
+      - name: Disable Jekyll
         run: touch ./dist/.nojekyll
 
       - name: Upload artifact for GitHub Pages
@@ -38,7 +37,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
-      contents: read
+      contents: read # Adicione esta permissão
 
     steps:
       - name: Deploy to GitHub Pages
