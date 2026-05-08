@@ -1,11 +1,5 @@
-import {
-  OrbitControls,
-  useGLTF,
-  useTexture,
-  Center,
-  TransformControls,
-} from '@react-three/drei';
-import { useMemo, useRef } from 'react';
+import { useGLTF, useTexture, Center } from '@react-three/drei';
+import { useMemo } from 'react';
 import * as THREE from 'three';
 import PointerLockControlsCustom from '../controls';
 // https://gltf.report/
@@ -61,7 +55,13 @@ export default function House() {
       <color attach="background" args={['#000000']} />
       <Center>
         <mesh geometry={nodes.parede.geometry} onClick={apagueAsLuzes}>
-          <meshBasicMaterial map={bakedTestureHouse} />
+          {/* <meshBasicMaterial map={bakedTestureHouse} /> //nao reage a luz */}
+          <meshStandardMaterial
+            color="white"
+            emissive="white"
+            emissiveMap={bakedTestureHouse}
+            emissiveIntensity={0.5}
+          />
         </mesh>
       </Center>
       {/* <TransformControls

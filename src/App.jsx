@@ -1,12 +1,20 @@
 import './App.css';
 import { Canvas } from '@react-three/fiber';
 import House from './components/house';
-import { Perf } from 'r3f-perf';
+// import { Perf } from 'r3f-perf';
+import FlashLight from './components/flashLight';
+
 // npm run lint -- --fix
 
 function App() {
-  //castShadow e receiveshadow (fazer ou receber sombra)
-
+  // //castShadow e receiveshadow (fazer ou receber sombra)
+  // let teste = '';
+  // setTimeout(() => {
+  //   {
+  //     teste = 'Vc ja viu o que existe no escuro ';
+  //     console.log('........a...');
+  //   }
+  // }, 2000);
   return (
     <div className="app">
       <header className="section header"></header>
@@ -23,6 +31,7 @@ function App() {
         >
           {/* <Perf /> */}
           <House />
+          <FlashLight />
         </Canvas>
       </div>
 
