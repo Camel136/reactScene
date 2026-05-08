@@ -3,6 +3,7 @@ import {
   DeviceOrientationControls,
 } from '@react-three/drei';
 import { useEffect, useState } from 'react';
+import * as THREE from 'three';
 
 export default function PointerLockControlsCustom() {
   const [isMobile, setIsMobile] = useState(false);
@@ -14,6 +15,14 @@ export default function PointerLockControlsCustom() {
     DEG_90: Math.PI / 2,
     DEG_180: Math.PI,
   };
+
+  const customCamera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
+  customCamera.position.set(5, 1.6, 14);
 
   useEffect(() => {
     const mobileRegex =
@@ -30,5 +39,5 @@ export default function PointerLockControlsCustom() {
     return <PointerLockControls minPolarAngle={ANGLE.DEG_90} />;
   }
 
-  return <DeviceOrientationControls />;
+  return <DeviceOrientationControls camera={customCamera} />;
 }
