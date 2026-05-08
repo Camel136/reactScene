@@ -7,6 +7,7 @@ import {
 } from '@react-three/drei';
 import { useMemo, useRef } from 'react';
 import * as THREE from 'three';
+import PointerLockControlsCustom from '../controls';
 // https://gltf.report/
 
 export default function House() {
@@ -50,18 +51,16 @@ export default function House() {
   nodes.vidro_janela.position.y = -8.817037406785715;
   nodes.vidro_janela.position.z = 0.149929950065959;
 
+  const apagueAsLuzes = () => {
+    console.log('......click.....');
+  };
+
   return (
     <>
-      <OrbitControls
-        makeDefault
-        minPolarAngle={Math.PI / 4} // limite inferior de rotação vertical (para cima)
-        maxPolarAngle={Math.PI / 2} // limite superior de rotação vertical (para baixo)
-        minAzimuthAngle={-Math.PI / 4} // limite esquerdo de rotação horizontal
-        maxAzimuthAngle={Math.PI / 4} // limite direito de rotação horizontal
-      />
+      <PointerLockControlsCustom />
       <color attach="background" args={['#000000']} />
       <Center>
-        <mesh geometry={nodes.parede.geometry}>
+        <mesh geometry={nodes.parede.geometry} onClick={apagueAsLuzes}>
           <meshBasicMaterial map={bakedTestureHouse} />
         </mesh>
       </Center>
