@@ -12,13 +12,21 @@ function App() {
       <header className="section header"></header>
 
       <div className="section canvas-container">
-        <Canvas shadows>
-          <Perf />
+        <Canvas
+          shadows
+          camera={{
+            position: [5, 1.6, 14], // [x, y, z]
+            fov: 75,
+            near: 0.1,
+            far: 1000,
+          }}
+        >
+          {/* <Perf /> */}
           <House />
         </Canvas>
       </div>
 
-      <footer className="section footer">Outros elementos</footer>
+      <footer className="section footer"></footer>
     </div>
   );
 }
