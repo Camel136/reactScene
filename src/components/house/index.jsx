@@ -1,7 +1,7 @@
-import { useGLTF, useTexture, Center } from '@react-three/drei';
+import { useGLTF, useTexture, Center, OrbitControls } from '@react-three/drei';
 import { useMemo } from 'react';
 import * as THREE from 'three';
-import PointerLockControlsCustom from '../controls';
+
 // https://gltf.report/
 
 export default function House() {
@@ -10,8 +10,6 @@ export default function House() {
   //   atençao ao dar join no blender a ultima geomtria fica como ponto de origem
   const bakedTestureHouse = useTexture('./bake/bakedImage.jpg');
   bakedTestureHouse.flipY = false;
-
-  // console.log('...........', nodes);
 
   const glassTableMaterial = useMemo(
     () =>
@@ -45,23 +43,18 @@ export default function House() {
   nodes.vidro_janela.position.y = -8.817037406785715;
   nodes.vidro_janela.position.z = 0.149929950065959;
 
-  const apagueAsLuzes = () => {
-    console.log('......click.....');
-  };
-
   return (
     <>
-      <PointerLockControlsCustom />
       <color attach="background" args={['#000000']} />
       <Center>
-        <mesh geometry={nodes.parede.geometry} onClick={apagueAsLuzes}>
-          {/* <meshBasicMaterial map={bakedTestureHouse} /> //nao reage a luz */}
-          <meshStandardMaterial
+        <mesh geometry={nodes.parede.geometry}>
+          <meshBasicMaterial map={bakedTestureHouse} /> //nao reage a luz
+          {/* <meshStandardMaterial
             color="white"
             emissive="white"
             emissiveMap={bakedTestureHouse}
             emissiveIntensity={0.5}
-          />
+          /> */}
         </mesh>
       </Center>
       {/* <TransformControls
