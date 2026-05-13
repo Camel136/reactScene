@@ -2,10 +2,16 @@ import './App.css';
 import { Canvas } from '@react-three/fiber';
 import House from './components/house';
 // import { Perf } from 'r3f-perf';
-import { useGLTF, useTexture, Center, OrbitControls } from '@react-three/drei';
+import {
+  useGLTF,
+  useTexture,
+  Center,
+  OrbitControls,
+  Text3D,
+} from '@react-three/drei';
 import PointerLockControlsCustom from './components/controls';
 import { useEffect, useState } from 'react';
-// import FlashLight from './components/flashLight';
+import FlashLight from './components/flashLight';
 
 // npm run lint -- --fix
 
@@ -25,8 +31,6 @@ function App() {
 
   const [changeMode, setChangeMode] = useState(false);
   const positionCam = [5, 1.6, 14];
-
-  console.log('...........', Math.PI / 2);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -63,6 +67,17 @@ function App() {
                 maxAzimuthAngle={ANGLE.DEG_90}
               />
               <House />
+              {/* https://gero3.github.io/facetype.js/ */}
+              <Text3D
+                font="./fonts/Kelly_Slab/Kelly Slab_Regular.json"
+                size={0.5}
+                height={0.1}
+                rotation={[0, 1.2, 0]}
+                position={[-7, 2, 6]}
+              >
+                Cuidado com o que existe no escuro
+                <meshBasicMaterial color="red" />
+              </Text3D>{' '}
             </>
           ) : (
             <>

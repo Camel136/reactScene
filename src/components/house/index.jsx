@@ -48,13 +48,15 @@ export default function House() {
       <color attach="background" args={['#000000']} />
       <Center>
         <mesh geometry={nodes.parede.geometry}>
-          <meshBasicMaterial map={bakedTestureHouse} /> //nao reage a luz
-          {/* <meshStandardMaterial
+          {/* <meshBasicMaterial map={bakedTestureHouse} /> //nao reage a luz */}
+          <meshStandardMaterial
             color="white"
             emissive="white"
             emissiveMap={bakedTestureHouse}
-            emissiveIntensity={0.5}
-          /> */}
+            emissiveIntensity={1}
+            roughness={0.9}
+            metalness={0.9}
+          />
         </mesh>
       </Center>
       {/* <TransformControls
