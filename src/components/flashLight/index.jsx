@@ -1,8 +1,5 @@
-import {
-  PointerLockControls,
-  DeviceOrientationControls,
-  useHelper,
-} from '@react-three/drei';
+
+
 
 import { useRef } from 'react';
 import * as THREE from 'three';

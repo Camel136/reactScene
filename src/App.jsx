@@ -2,15 +2,9 @@ import './App.css';
 import { Canvas } from '@react-three/fiber';
 import House from './components/house';
 // import { Perf } from 'r3f-perf';
-import {
-  useGLTF,
-  useTexture,
-  Center,
-  OrbitControls,
-  Text3D,
-} from '@react-three/drei';
+
 import PointerLockControlsCustom from './components/controls';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import FlashLight from './components/flashLight';
 import TextCustom from './components/text';
 
@@ -56,7 +50,6 @@ function App() {
             far: 1000,
           }}
         >
-          {/* ate fazer luz apagar defpois colocar o pointer lock */}
           {/* Se não mudou o modo, mostra Orbit e a House. Se mudou, mostra apenas o PointerLock */}
           {!changeMode ? (
             <>

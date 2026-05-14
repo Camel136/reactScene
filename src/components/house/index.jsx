@@ -1,4 +1,4 @@
-import { useGLTF, useTexture, Center, OrbitControls } from '@react-three/drei';
+import { useGLTF, useTexture, Center } from '@react-three/drei';
 import { useMemo } from 'react';
 import * as THREE from 'three';
 
