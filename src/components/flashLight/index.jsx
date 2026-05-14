@@ -13,7 +13,7 @@ export default function FlashLight() {
   const { camera } = useThree();
   const direction = new THREE.Vector3();
 
-  useHelper(lightRef, THREE.SpotLightHelper, 'cyan');
+  //useHelper(lightRef, THREE.SpotLightHelper, 'cyan');
 
   useFrame(() => {
     if (!lightRef.current) return;
@@ -39,10 +39,10 @@ export default function FlashLight() {
       ref={lightRef}
       angle={0.4}
       penumbra={0.2}
-      intensity={5}
+      intensity={30}
       distance={50}
-      decay={1}
-      color="#7c7575" //revisar
+      decay={2}
+      color="#ff0000"
       castShadow
       shadow-mapSize={[1024, 1024]}
     />

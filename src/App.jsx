@@ -12,6 +12,7 @@ import {
 import PointerLockControlsCustom from './components/controls';
 import { useEffect, useState } from 'react';
 import FlashLight from './components/flashLight';
+import TextCustom from './components/text';
 
 // npm run lint -- --fix
 
@@ -59,31 +60,26 @@ function App() {
           {/* Se não mudou o modo, mostra Orbit e a House. Se mudou, mostra apenas o PointerLock */}
           {!changeMode ? (
             <>
-              <OrbitControls
+              {/* <OrbitControls
                 makeDefault
                 minPolarAngle={ANGLE.DEG_75}
                 maxPolarAngle={-ANGLE.DEG_75}
                 minAzimuthAngle={-ANGLE.DEG_30}
                 maxAzimuthAngle={ANGLE.DEG_90}
-              />
-              <House />
-              {/* https://gero3.github.io/facetype.js/ */}
-              <Text3D
-                font="./fonts/Kelly_Slab/Kelly Slab_Regular.json"
-                size={0.5}
-                height={0.1}
-                rotation={[0, 1.2, 0]}
-                position={[-7, 2, 6]}
-              >
-                Cuidado com o que existe no escuro
-                <meshBasicMaterial color="red" />
-              </Text3D>{' '}
-            </>
-          ) : (
-            <>
+              /> */}
               <PointerLockControlsCustom />
+
+              <House />
+              <TextCustom
+                rot={[0, 1.7, 0]}
+                pos={[-7, -2, 6]}
+                text="aperte ESC pra sair "
+                color="white"
+              />
               <FlashLight />
             </>
+          ) : (
+            <>{/* <House /> */}</>
           )}
           {/* <Perf /> */}
         </Canvas>

@@ -5,7 +5,7 @@ import {
 import { useEffect, useState } from 'react';
 
 export default function PointerLockControlsCustom() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   const ANGLE = {
     DEG_30: Math.PI / 6,
@@ -15,20 +15,20 @@ export default function PointerLockControlsCustom() {
     DEG_180: Math.PI,
   };
 
-  useEffect(() => {
-    const mobileRegex =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-    const isMobileDevice = mobileRegex.test(navigator.userAgent);
+  // useEffect(() => {
+  //   const mobileRegex =
+  //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  //   const isMobileDevice = mobileRegex.test(navigator.userAgent);
 
-    const isTouchDevice =
-      'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  //   const isTouchDevice =
+  //     'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    setIsMobile(isMobileDevice || isTouchDevice);
-  }, []);
+  //   setIsMobile(isMobileDevice || isTouchDevice);
+  // }, []);
 
   if (!isMobile) {
     return <PointerLockControls minPolarAngle={ANGLE.DEG_90} />;
   }
 
-  return <DeviceOrientationControls />; //ajustar depois
+  // return <DeviceOrientationControls />; //ajustar depois
 }

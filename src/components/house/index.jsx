@@ -53,7 +53,7 @@ export default function House() {
             color="white"
             emissive="white"
             emissiveMap={bakedTestureHouse}
-            emissiveIntensity={1}
+            emissiveIntensity={0.4}
             roughness={0.9}
             metalness={0.9}
           />
