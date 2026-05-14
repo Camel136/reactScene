@@ -1,9 +1,8 @@
 import { Text3D } from '@react-three/drei';
 
 export default function TextCustom({ pos, rot, text, color }) {
-  const isTouchDevice = true;
-  'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  setIsMobile(isTouchDevice);
+  const isTouchDevice =
+    'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
   return (
     <Text3D

@@ -16,8 +16,8 @@ export default function PointerLockControlsCustom() {
   };
 
   useEffect(() => {
-    const isTouchDevice = true;
-    'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isTouchDevice =
+      'ontouchstart' in window || navigator.maxTouchPoints > 0;
     setIsMobile(isTouchDevice);
 
     if (isTouchDevice) {
