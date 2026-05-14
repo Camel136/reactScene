@@ -1,6 +1,10 @@
 import { Text3D } from '@react-three/drei';
 
 export default function TextCustom({ pos, rot, text, color }) {
+  const isTouchDevice = true;
+  'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  setIsMobile(isTouchDevice);
+
   return (
     <Text3D
       font="./fonts/Kelly_Slab/Kelly Slab_Regular.json"
@@ -9,7 +13,7 @@ export default function TextCustom({ pos, rot, text, color }) {
       rotation={rot}
       position={pos}
     >
-      {text}
+      {!isTouchDevice && text}
       <meshBasicMaterial color={color} />
     </Text3D>
   );
